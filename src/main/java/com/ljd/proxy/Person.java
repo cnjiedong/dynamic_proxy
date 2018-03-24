@@ -5,4 +5,5 @@ package com.ljd.proxy;
  */
 public interface Person {
     void searchHouse();
+    String think(String input1, String input2, String input3);
 }

@@ -5,7 +5,14 @@ package com.ljd.proxy;
  */
 public class TestProxy {
     public static void main(String[] args) {
-        Person person = (Person) new HomeLink().getInstance(new Master());
+
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
+        Person person = (Person) new HomeLink().getInstance(new Master("1", "2", "3"));
         person.searchHouse();
+        String solution = person.think("4", "5", "6");
+        System.out.println(solution);
+        System.out.println("proxy end");
     }
 }
+
+
