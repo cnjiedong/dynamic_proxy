@@ -1,4 +1,4 @@
-package com.ljd.proxy;
+package com.ljd.proxy.jdk;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -17,11 +17,12 @@ public class HomeLink implements InvocationHandler {
         return obj;
     }
 
-    @Override
     public Object invoke(Object obj, Method method, Object[] args) throws Throwable {
         System.out.println("我是链家，我帮别人找房子..");
         //第一个参数是target,也就是被代理类的对象；第二个参数是方法中的参数
+        System.out.println(method.getName() + " begin");
         Object result = method.invoke(target, args);
+        System.out.println(method.getName() + " end");
         System.out.println("我是链家，已经找完了..");
         return result;
     }
